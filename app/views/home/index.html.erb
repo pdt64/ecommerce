@@ -1,0 +1,33 @@
+<div class="columns">
+  <div class="column">
+    <h2 class="title is-2">Records</h2>
+    <ol class="ml-5">
+      <% @records.each do |s| %>
+        <li>
+          <%= s.name %>
+        </li>
+      <% end %>
+    </ol>
+    <p class="mt-5">
+      <strong><%= link_to 'See All Records', records_path %></strong>
+    </p>
+
+  </div>
+
+  <div class="column">
+    <h2 class="title is-2">Genres</h2>
+    <ol class="ml-5">
+      <% @genres.each do |g| %>
+        <li>
+          <%= g.name %>
+        </li>
+      <% end %>
+    </ol>
+    <p class="mt-5">
+      <strong><%= link_to 'See the list of genres', genres_path %></strong>
+    </p>
+
+
+  </div>
+
+</div>

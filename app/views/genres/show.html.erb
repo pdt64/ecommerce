@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class = "title is-1">
+  <%= @genre.name %>
+</h1>
+<ol>
+  <% @genre.records.each do |s| %>
+    <li>
+      <%= link_to s.name, s %>
+    </li>
+  <% end %>
+</ol>
+
+
+<div>|
+  <%= link_to "Back to genres", genres_path %>
+
+</div>

@@ -1,2 +1,28 @@
-<h1>Records#show</h1>
-<p>Find me in app/views/records/show.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<%= render @record %>
+<h2 class="title is-2"><%= @record.name %></h2>
+<div>
+<ul>
+  <li>
+    Price: $<%= @record.price%>
+  </li>
+  <li>
+    Description: <%= @record.description%>
+  </li>
+  <li>
+    Genre: <%= link_to @record.genre.name, @record.genre %>
+  </li>
+  <li>
+    Writers: <%= @record.writers.map(&:writer_name).join(", ") %>
+  </li>
+  <li>
+    Producers: <%= @record.producers.map(&:producer_name).join(", ") %>
+  </li>
+</ul>
+</div>
+
+<div>
+  <%= link_to "Back to records", records_path %>
+
+</div>
