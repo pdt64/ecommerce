@@ -24,15 +24,15 @@ songs.each do |s|
 
   if genre && genre.valid?
     # create the movie
-    song = genre.records.create(
+    record = genre.records.create(
       name:        s["title"],
       description: s["description"],
       sale:        false,
-      price:
+      price:       Faker::Commerce.price(range: 0..50.0)
     )
 
-    unless song&.valid?
-      puts "Invalid song #{s['title']}"
+    unless record&.valid?
+      puts "Invalid record #{s['title']}"
       next
     end
 
@@ -41,7 +41,7 @@ songs.each do |s|
     writers.each do |w|
       writer = Writer.find_or_create_by(writer_name: w)
 
-      RecordWriter.create(song: song, writer: writer)
+      RecordWriter.create(record: record, writer: writer)
     end
 
     producers = s["producer"].split(",").map(&:strip)
@@ -49,7 +49,7 @@ songs.each do |s|
     producers.each do |p|
       producer = Producer.find_or_create_by(producer_name: p)
 
-      RecordProducer.create(song: song, producer: producer)
+      RecordProducer.create(record: record, producer: producer)
     end
   else
     puts "invalid genre #{s['genre']} for movie #{s['title']}."
