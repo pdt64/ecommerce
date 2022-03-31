@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Records on Sale</h1>
+
+<div id="records">
+
+  <% @records.each do |record| %>
+    <%= render record %>
+    <p>
+      <%= link_to record.name, record %>
+    </p>
+  <% end %>
+  <%= paginate @records %>
+</div>
