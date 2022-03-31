@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contact/show'
   get 'about/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
