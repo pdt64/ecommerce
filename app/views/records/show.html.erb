@@ -3,6 +3,9 @@
 <%= render @record %>
 <h2 class="title is-2"><%= @record.name %></h2>
 <div>
+<% if @record.image.present? %>
+<p>Image</p>
+<% end %>
 <ul>
   <li>
     Price: $<%= @record.price%>

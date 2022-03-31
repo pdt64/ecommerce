@@ -6,4 +6,5 @@ class Record < ApplicationRecord
   has_many :producers, through: :record_producers
 
   validates :name, presence: true
+  has_one_attached :image
 end
