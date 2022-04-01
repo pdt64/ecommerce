@@ -4,7 +4,7 @@ ActiveAdmin.register Record do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :price, :sale, :genre_id
+  permit_params :name, :description, :price, :sale, :genre_id, :image
   form do |f|
     f.semantic_errors
     f.inputs

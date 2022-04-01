@@ -76,3 +76,5 @@ gem 'kaminari'
 gem "bootstrap-kaminari-views"
 gem 'activeadmin'
 gem 'devise'
+
+gem "google-cloud-storage", "~> 1.8", require: false

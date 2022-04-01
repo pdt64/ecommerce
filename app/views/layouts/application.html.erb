@@ -13,7 +13,9 @@
 
   <body></body>
   <%= render partial: 'common/header' %>
-  <%= render partial: 'common/filterbar' %>
+  <% if controller_name == 'home' || controller_name == 'records' %>
+    <%= render partial: 'common/filterbar' %>
+  <% end %>
     <%= yield %>
   </body>
 </html>

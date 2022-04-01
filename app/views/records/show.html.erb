@@ -3,9 +3,7 @@
 <%= render @record %>
 <h2 class="title is-2"><%= @record.name %></h2>
 <div>
-<% if @record.image.present? %>
-<p>Image</p>
-<% end %>
+<%= image_tag(@record.image, width: 200) if @record.image.attached? %>
 <ul>
   <li>
     Price: $<%= @record.price%>
