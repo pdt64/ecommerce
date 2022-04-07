@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "contact/show"
   get "about/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root to: "home#index"
+
+  devise_scope :user do
+    get "/users/sign_out" => "devise/sessions#destroy"
+  end
 
   resources :records, only: %i[index show]
 end

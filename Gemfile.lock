@@ -355,7 +355,7 @@ DEPENDENCIES
   bootstrap-kaminari-views
   capybara
   debug
-  devise
+  devise (~> 4.8, >= 4.8.1)
   faker!
   google-cloud-storage (~> 1.8)
   importmap-rails

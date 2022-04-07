@@ -15,6 +15,7 @@
       <p class="navbar-item">
         <%= link_to "Home", root_path %>
       </p>
+
       <p class="navbar-item">
         <%= link_to "Contact", contact_show_path %>
       </p>
@@ -22,6 +23,22 @@
       <p class="navbar-item">
         <%= link_to "About", about_show_path %>
       </p>
+
+      <% if !user_signed_in? %>
+        <p class="navbar-item">
+          <%= link_to "Sign Up", new_user_registration_path %>
+        </p>
+        <p class="navbar-item">
+          <%= link_to "Sign In", new_user_session_path %>
+        </p>
+      <% else %>
+        <p class="navbar-item">
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        </p>
+        <p class="navbar-item">
+          <%= link_to "Edit Profile", edit_user_registration_path %>
+        </p>
+      <% end %>
 
     </div>
 

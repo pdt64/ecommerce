@@ -75,6 +75,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'kaminari'
 gem "bootstrap-kaminari-views"
 gem 'activeadmin'
-gem 'devise'
+
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem "google-cloud-storage", "~> 1.8", require: false
