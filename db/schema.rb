@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_033826) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_044428) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -84,6 +84,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_033826) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "record_producers", force: :cascade do |t|
     t.integer "record_id", null: false
     t.integer "producer_id", null: false
@@ -121,7 +127,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_033826) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "address"
+    t.integer "province_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -138,4 +148,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_033826) do
   add_foreign_key "record_writers", "records"
   add_foreign_key "record_writers", "writers"
   add_foreign_key "records", "genres"
+  add_foreign_key "users", "provinces"
 end

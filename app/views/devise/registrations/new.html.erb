@@ -8,6 +8,21 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div>
+     <%= f.label :address %><br />
+     <%= f.text_field :address %>
+  </div>
+
+  <div>
+     <%= f.label :province %><br />
+     <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name) %>
+  </div>
+
+  <div>
+     <%= f.label :city %><br />
+     <%= f.text_field :city %>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

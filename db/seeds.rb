@@ -14,6 +14,7 @@ Genre.delete_all
 Writer.delete_all
 Producer.delete_all
 AdminUser.destroy_all
+Province.destroy_all
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -72,3 +73,14 @@ if Rails.env.development?
   AdminUser.create!(email: "admin@example.com", password: "password",
                     password_confirmation: "password")
 end
+
+Province.create(name: "Manitoba")
+Province.create(name: "Ontario")
+Province.create(name: "Quebec")
+Province.create(name: "Nova Scotia")
+Province.create(name: "New Brunswick")
+Province.create(name: "British Columbia")
+Province.create(name: "Prince Edward Island")
+Province.create(name: "Saskatchewan")
+Province.create(name: "Alberta")
+Province.create(name: "Newfoundland and Labrador")
