@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class = "title is-1">
+  <%= @producer.producer_name %>
+</h1>
+<ol>
+  <% @producer.records.each do |s| %>
+    <li>
+      <%= link_to s.name, s %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to "Back to producers", producers_index_path %>
+<div>|
+
+</div>

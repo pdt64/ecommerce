@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Producers</h1>
+
+<div id="producers">
+  <% @producers.each do |p| %>
+    <p>
+      <%= link_to p.producer_name,controller: "producers", action: "show", id: p.id%>
+    </p>
+  <% end %>
+  <%= paginate @producers %>
+</div>

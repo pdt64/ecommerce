@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class = "title is-1">
+  <%= @writer.writer_name %>
+</h1>
+<ol>
+  <% @writer.records.each do |s| %>
+    <li>
+      <%= link_to s.name, s %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to "Back to writers", writers_index_path %>
+<div>|
+
+</div>

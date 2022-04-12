@@ -15,10 +15,10 @@
     Genre: <%= link_to @record.genre.name, @record.genre %>
   </li>
   <li>
-    Writers: <%= @record.writers.map(&:writer_name).join(", ") %>
+    Writers: <%= safe_join(@record.writers.map { |w| link_to(w.writer_name, controller: "writers", action: "show", id: w.id) }, ", ".html_safe) %>
   </li>
   <li>
-    Producers: <%= @record.producers.map(&:producer_name).join(", ") %>
+    Producers: <%= safe_join(@record.producers.map { |p| link_to(p.producer_name, controller: "producers", action: "show", id: p.id) }, ", ".html_safe) %>
   </li>
 </ul>
 </div>

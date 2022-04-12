@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'producers/index'
+  get 'producers/show'
+  get 'writers/index'
+  get 'writers/show'
   devise_for :users
   get "contact/show"
   get "about/show"

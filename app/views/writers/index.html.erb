@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Writers</h1>
+
+<div id="writers">
+  <% @writers.each do |w| %>
+    <p>
+      <%= link_to w.writer_name,controller: "writers", action: "show", id: w.id%>
+    </p>
+  <% end %>
+  <%= paginate @writers %>
+</div>
