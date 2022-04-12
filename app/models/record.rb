@@ -5,6 +5,8 @@ class Record < ApplicationRecord
   has_many :writers, through: :record_writers
   has_many :producers, through: :record_producers
 
-  validates :name, presence: true
+  validates :name, :description, presence: true
+  validates :price, presence: true
+  validates :price, numericality: true
   has_one_attached :image
 end

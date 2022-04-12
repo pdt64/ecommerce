@@ -16,6 +16,7 @@
   <% if controller_name == 'home' || controller_name == 'records' %>
     <%= render partial: 'common/filterbar' %>
   <% end %>
+  <%= render_breadcrumbs %>
     <%= yield %>
   <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
