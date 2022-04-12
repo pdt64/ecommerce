@@ -9,8 +9,12 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# Use pg as the database for Active Record
+# group :development, :test do # <<<< :development, not devlopment
+#   gem 'pg'
+# end
+
+gem "sqlite3"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -75,6 +79,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'kaminari'
 gem "bootstrap-kaminari-views"
 gem 'activeadmin'
+gem 'pg'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
