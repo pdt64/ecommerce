@@ -36,11 +36,10 @@
      <%= f.text_field :address %>
   </div>
 
-  <div>
-     <%= f.label :province %><br />
-     <%= f.select :province, options_from_collection_for_select(Province.all, :id, :name) %>
+    <div>
+     <%= f.label :province_id %><br />
+     <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name, params[:province_id].to_i) %>
   </div>
-
   <div>
      <%= f.label :city %><br />
      <%= f.text_field :city %>
