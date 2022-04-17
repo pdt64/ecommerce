@@ -31,7 +31,13 @@ class RecordsController < ApplicationController
       redirect to records_index_path and return
     else
       @parameter = params[:search].downcase
-      @results = Record.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+      @genre = params[:genre]
+      @results = if params[:genre].blank?
+                   Record.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+                 else
+                   Record.all.where("lower(name) LIKE :search AND genre_id = :genre",
+                                    search: "%#{@parameter}%", genre: @genre)
+                 end
     end
   end
 end
