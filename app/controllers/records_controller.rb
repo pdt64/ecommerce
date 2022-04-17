@@ -25,4 +25,13 @@ class RecordsController < ApplicationController
     @records = Record.where("created_at > ?", three_days_ago).page(params[:page])
     add_breadcrumb "New Records", :records_filter_new_path
   end
+
+  def search
+    if params[:search].blank?
+      redirect to records_index_path and return
+    else
+      @parameter = params[:search].downcase
+      @results = Record.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
 end

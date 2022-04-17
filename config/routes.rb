@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'producers/index'
-  get 'producers/show'
-  get 'writers/index'
-  get 'writers/show'
+  get "producers/index"
+  get "producers/show"
+  get "writers/index"
+  get "writers/show"
   devise_for :users
   get "contact/show"
   get "about/show"
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "records/show"
   get "records/filter_new"
   get "records/filter_sale"
+  get "records/search"
   resources :genres
   resources :records
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
