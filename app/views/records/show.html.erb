@@ -33,7 +33,7 @@
   <%end%>
 <% end %>
 
-<%= form_with url: checkout_create_path, remote: true do %>
+<%= form_with url: checkout_create_path, remote: true, data: { turbo: false } do %>
   <%= hidden_field_tag(:id, @record.id) %>
  <%= button_tag 'Buy Now' %>
 <% end %>

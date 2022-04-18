@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :cart, only: %i[create destroy]
 
   scope "/checkout" do
-    post "create", to: "checkout#create", as: "checkout_create"
+    post "create", to: "checkout#create", as: "checkout_create", defaults: { format: :js }
     get "success", to: "checkout#success", as: "checkout_success"
     get "cancel", to: "checkout#cancel", as: "checkout_cancel"
   end

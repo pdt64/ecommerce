@@ -1,4 +1,5 @@
 class CheckoutController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def create
     record = Record.find(params[:id])
     if record.nil?
@@ -6,15 +7,11 @@ class CheckoutController < ApplicationController
       return
     end
 
-    respond_to do |format|
-      format.js
-    end
-
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ["card"],
-      success_url:          checkout_create_url,
+      success_url:          checkout_success_url,
       cancel_url:           checkout_cancel_url,
-      line_item:            [
+      line_items:           [
         name:        record.name,
         description: record.description,
         amount:      (record.price * 100).to_i,
@@ -22,6 +19,10 @@ class CheckoutController < ApplicationController
         quantity:    1
       ]
     )
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def success; end
