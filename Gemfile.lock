@@ -90,8 +90,6 @@ GEM
       ruby2_keywords (>= 0.0.2, < 1.0)
     bcrypt (3.1.17)
     bindex (0.8.1)
-    bootsnap (1.11.1)
-      msgpack (~> 1.2)
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
       rails (>= 3.1)
@@ -217,7 +215,6 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
-    msgpack (1.4.5)
     multi_json (1.15.0)
     net-imap (0.2.3)
       digest
@@ -363,7 +360,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
-  bootsnap
   bootstrap-kaminari-views
   breadcrumbs_on_rails
   capybara
