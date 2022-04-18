@@ -9,15 +9,45 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://js.stripe.com/v3"></script>
+
   </head>
 
-  <body></body>
+  <body>
   <%= render partial: 'common/header' %>
   <% if controller_name == 'home' || controller_name == 'records' %>
     <%= render partial: 'common/filterbar' %>
     <%= render partial: 'common/search' %>
   <% end %>
   <%= render_breadcrumbs %>
+    <% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<nav>
+<%= link_to image_tag("snow.png", width: 60), root_path %>
+<ul>
+<li>
+Cart
+<% if cart.present? %>
+  <sup><%= cart.size %></sup>
+  <ul>
+    <% cart.each do |record| %>
+      <li>
+        <%= record.name %>
+          <%= button_to cart_path(record), method: :delete do%>
+            Remove from cart
+          <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+</li>
+</ul>
+</nav>
+
     <%= yield %>
   <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

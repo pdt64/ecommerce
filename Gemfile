@@ -93,3 +93,7 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "google-cloud-storage", "~> 1.8", require: false
 
 gem "breadcrumbs_on_rails"
+
+gem 'stripe'
+
+gem 'webpacker'

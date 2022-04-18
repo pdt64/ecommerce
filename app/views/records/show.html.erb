@@ -21,6 +21,17 @@
     Producers: <%= safe_join(@record.producers.map { |p| link_to(p.producer_name, controller: "producers", action: "show", id: p.id) }, ", ".html_safe) %>
   </li>
 </ul>
+
+<% if cart.include?(@record) %>
+ <%= button_to cart_path(@record), method: :delete do%>
+    Remove from cart
+<% end %>
+<% else %>
+  <%= form_with url: cart_index_path, method: :post do %>
+   <%= hidden_field_tag(:id, @record.id) %>
+    <%= button_tag 'Add to Cart' %>
+  <%end%>
+<% end %>
 </div>
 
 <div>
