@@ -5,6 +5,8 @@ class Record < ApplicationRecord
   has_many :writers, through: :record_writers
   has_many :producers, through: :record_producers
 
+  accepts_nested_attributes_for :record_producers, allow_destroy: true
+
   validates :name, :description, presence: true
   validates :price, presence: true
   validates :price, numericality: true
