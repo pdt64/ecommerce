@@ -35,7 +35,7 @@ Cart
   <ul>
     <% cart.each do |record| %>
       <li>
-        <%= record.name %>
+        <%= record.name %> <%= number_field_tag 'quantity', '1', min: 1 %>
           <%= button_to cart_path(record), method: :delete do%>
             Remove from cart
           <% end %>
