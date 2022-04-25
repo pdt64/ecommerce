@@ -1,4 +1,4 @@
 class Genre < ApplicationRecord
-  has_many :records
-  validates :name, uniqueness: true
+  has_many :records, dependent: :nullify
+  validates :name, presence: true
 end

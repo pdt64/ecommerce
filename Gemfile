@@ -98,3 +98,6 @@ gem "breadcrumbs_on_rails"
 gem 'stripe'
 
 gem 'webpacker'
+
+gem 'rubocop'
+gem 'rubocop-rails'

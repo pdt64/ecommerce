@@ -1,5 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# This file should contain all the record creation needed to seed the database with its default
+# values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database
+# with db:setup).
 #
 # Examples:
 #
@@ -16,8 +18,11 @@ Producer.delete_all
 AdminUser.destroy_all
 Province.destroy_all
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# This file should contain all the record creation needed to seed the database with its default
+# values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database
+#
+# with db:setup).
 #
 # Examples:
 #
@@ -28,6 +33,8 @@ if Rails.env.development?
                     password_confirmation: "password")
 end
 
+logger = Rails.logger
+
 csv_file = Rails.root.join("db/records.csv")
 csv_data = File.read(csv_file)
 
@@ -36,7 +43,7 @@ songs = CSV.parse(csv_data, headers: true)
 songs.each do |s|
   genre = Genre.find_or_create_by(name: Faker::Music.genre)
 
-  if genre && genre.valid?
+  if genre && genre&.valid?
     # create the movie
     record = genre.records.create(
       name:        s["title"],
@@ -46,7 +53,7 @@ songs.each do |s|
     )
 
     unless record&.valid?
-      puts "Invalid record #{s['title']}"
+      logger.info "Invalid record #{s['title']}"
       next
     end
 
@@ -66,7 +73,7 @@ songs.each do |s|
       RecordProducer.create(record: record, producer: producer)
     end
   else
-    puts "invalid genre #{s['genre']} for movie #{s['title']}."
+    logger.info "invalid genre #{s['genre']} for movie #{s['title']}."
   end
 end
 if Rails.env.development?

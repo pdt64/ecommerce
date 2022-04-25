@@ -15,7 +15,6 @@
   <body>
   <%= render partial: 'common/header' %>
   <% if controller_name == 'home' || controller_name == 'records' %>
-    <%= render partial: 'common/filterbar' %>
     <%= render partial: 'common/search' %>
   <% end %>
   <%= render_breadcrumbs %>

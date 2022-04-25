@@ -1,9 +1,9 @@
-
+<%= javascript_pack_tag "burger" %>
 
 <nav class="navbar is-black" aria-label="main navigation">
   <div class="navbar-brand">
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -22,6 +22,14 @@
 
       <p class="navbar-item">
         <%= link_to "About", about_show_path %>
+      </p>
+
+       <p class="navbar-item">
+        <%= link_to "New", records_filter_new_path %>
+      </p>
+
+      <p class="navbar-item">
+        <%= link_to "Sale", records_filter_sale_path %>
       </p>
 
       <% if !user_signed_in? %>
