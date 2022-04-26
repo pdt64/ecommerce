@@ -28,7 +28,7 @@ class RecordsController < ApplicationController
 
   def search
     if params[:search].blank?
-      redirect to records_index_path and return
+      redirect_to records_index_path and return
     else
       @parameter = params[:search].downcase
       @genre = params[:genre]

@@ -13,3 +13,72 @@
  *= require_tree .
  *= require_self
  */
+
+button, input[type=submit] {
+  color: white!important;
+  border-radius: 0!important;
+  background-color: black!important;
+  background-image: none!important;
+}
+
+* {
+  font-family: 'Roboto', sans-serif!important;
+}
+
+.box {
+  width: 75%!important;
+  margin: auto auto;
+  height: 600px;
+}
+
+.edit {
+  height: 750px;
+}
+
+.record {
+  width: 245px!important;
+  height: 260px;
+}
+
+.pagination-link, .pagination-next, .pagination-previous  {
+  background-image: none!important;
+  text-align: center;
+  padding-top: 0.8em!important;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+a {
+  text-decoration: none!important;
+}
+
+.navbar-link {
+  color: white!important;
+}
+
+.navbar-link:hover {
+  color: #485fc7!important;
+}
+
+
+
+@media only screen and (max-width: 840px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+
+

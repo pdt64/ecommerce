@@ -1,14 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Records</h1>
+<h1 class="title is-1">Records</h1>
 
-<div id="records">
+<div id="records" class="grid-container">
 
   <% @records.each do |record| %>
-    <%= render record %>
-    <p>
+    <div class="box record">
+      <p>
       <%= link_to record.name, record %>
     </p>
+    <%= image_tag(record.image, width: 200, alt:"record") if record.image.attached? %>
+    <%= image_tag("rec.png", width: 200, alt:"record") if !record.image.attached? %>
+    </div>
+
   <% end %>
-  <%= paginate @records %>
+
 </div>
+  <%= paginate @records %>

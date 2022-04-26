@@ -1,17 +1,18 @@
 <%= javascript_pack_tag "burger" %>
 
-<nav class="navbar is-black" aria-label="main navigation">
-  <div class="navbar-brand">
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+<nav class="navbar is-black" aria-label="dropdown navigation">
+  <div class="navbar-item has-dropdown is-hoverable">
+    <%#<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
-  </div>
+  </div> %>
+  <a class="navbar-link">
+      Menu
+    </a>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
+  <div id="navbarBasicExample" class="navbar-dropdown">
       <p class="navbar-item">
         <%= link_to "Home", root_path %>
       </p>
