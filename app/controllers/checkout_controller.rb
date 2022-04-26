@@ -20,9 +20,10 @@ class CheckoutController < ApplicationController
       ]
     )
 
-    respond_to do |format|
-      format.js
-    end
+    redirect_to @session.url, allow_other_host: true
+    # # respond_to do |format|
+    #    format.js
+    #  end
   end
 
   def success; end
